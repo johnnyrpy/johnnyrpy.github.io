@@ -79,11 +79,11 @@
 
       Reepay.isGooglePayAvailable()
         .then((isAvailable) => {
+          console.log("Google Pay available:", isAvailable);
           const googlePayButton = document.getElementById("google-pay-button");
           if (isAvailable) {
             googlePayButton.style.display = "block";
           }
-          console.log("Google Pay available:", isAvailable);
         })
         .catch((error) => {
           console.error("Error checking Google Pay availability:", error);
