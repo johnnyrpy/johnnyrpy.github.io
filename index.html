@@ -59,6 +59,7 @@
   </head>
   <body>
     <main>
+      <p>Version 1.0.0</p>
       <p>Button shows up if Google Pay or Apple Pay is available</p>
       <div class="button-container">
         <button class="button" id="google-pay-button" style="display: none">
@@ -74,15 +75,19 @@
     <script src="https://staging-checkout.reepay.com/checkout.js"></script>
     <script>
       console.log(Reepay);
-      console.log(Reepay.isGooglePayAvailable);
+      console.log(typeof Reepay.isGooglePayAvailable);
 
-      Reepay.isGooglePayAvailable().then((isAvailable) => {
-        const googlePayButton = document.getElementById("google-pay-button");
-        if (isAvailable) {
-          googlePayButton.style.display = "block";
-        }
-        console.log("Google Pay available:", isAvailable);
-      });
+      Reepay.isGooglePayAvailable()
+        .then((isAvailable) => {
+          const googlePayButton = document.getElementById("google-pay-button");
+          if (isAvailable) {
+            googlePayButton.style.display = "block";
+          }
+          console.log("Google Pay available:", isAvailable);
+        })
+        .catch((error) => {
+          console.error("Error checking Google Pay availability:", error);
+        });
 
       const isApplePayAvailable = Reepay.isApplePayAvailable();
       const applePayButton = document.getElementById("apple-pay-button");
