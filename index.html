@@ -18,12 +18,6 @@
         min-height: 100vh;
       }
 
-      main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
       h1 {
         color: #4caf50;
         font-size: 3rem;
@@ -31,6 +25,7 @@
       }
 
       p {
+        text-align: center;
         font-size: 1.2rem;
         margin-bottom: 2rem;
       }
@@ -65,7 +60,7 @@
   </head>
   <body>
     <main>
-      <p>Version 1.0.1</p>
+      <p>Version 1.0.2</p>
       <p>Button shows up if Google Pay or Apple Pay is available</p>
       <div class="button-container">
         <button class="button" id="google-pay-button" style="display: none">
@@ -82,6 +77,28 @@
     <script>
       console.log(Reepay);
       console.log(typeof Reepay.isGooglePayAvailable);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (
+          typeof Reepay !== "undefined" &&
+          typeof Reepay.isGooglePayAvailable === "function"
+        ) {
+          Reepay.isGooglePayAvailable()
+            .then((isAvailable) => {
+              const googlePayButton =
+                document.getElementById("google-pay-button");
+              if (isAvailable) {
+                googlePayButton.style.display = "block";
+              }
+              console.log("Google Pay available:", isAvailable);
+            })
+            .catch((error) => {
+              console.error("Error checking Google Pay availability:", error);
+            });
+        } else {
+          console.error("Reepay library not loaded or method not available.");
+        }
+      });
 
       Reepay.isGooglePayAvailable()
         .then((isAvailable) => {
