@@ -5,3 +5,12 @@
     <p>I'm hosted with GitHub Pages.</p>
   </body>
 </html>
+
+<script src="https://checkout.reepay.com/checkout.js"></script>
+
+<script>
+  Reepay.isGooglePayAvailable().then((isAvailable) => {
+    // handle response (eg: show/hide google pay button)
+    console.log(isAvailable);
+  });
+</script>
