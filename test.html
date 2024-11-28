@@ -61,7 +61,7 @@
   </head>
   <body>
     <main>
-      <p>Version 1.0.14</p>
+      <p>Version 1.0.15</p>
       <p>Button shows up if Google Pay or Apple Pay is available</p>
       <div class="button-container">
         <button class="button" id="google-pay-button" style="display: none">
@@ -80,7 +80,7 @@
       console.log(Reepay);
       console.log(typeof Reepay.isGooglePayAvailable);
 
-      Reepay.isGooglePayAvailable()
+      Reepay.isGooglePayAvailable('staging')
         .then((isAvailable) => {
           console.log("something");
 
