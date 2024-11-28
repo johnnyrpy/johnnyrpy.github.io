@@ -1476,11 +1476,11 @@
                     resolve(content.data.data.result);
                   } else {
                     console.log('false content.data');
-                    reject();
+                    reject(false);
                   }
                 }
                 console.log('false from createGpCheckFrame');
-                reject(false);
+
               },
               false
             );
