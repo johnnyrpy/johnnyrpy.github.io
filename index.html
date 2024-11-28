@@ -61,7 +61,7 @@
   </head>
   <body>
     <main>
-      <p>Version 1.0.12</p>
+      <p>Version 1.0.13</p>
       <p>Button shows up if Google Pay or Apple Pay is available</p>
       <div class="button-container">
         <button class="button" id="google-pay-button" style="display: none">
@@ -74,13 +74,13 @@
     </main>
     <footer>&copy; 2024 GitHub Pages Demo</footer>
 
-    <script src="https://staging-checkout.reepay.com/checkout.js"></script>
+    <script src="https://dev-checkout.reepay.com/assets/demo/common/checkout.js"></script>
     <!-- <script src="https://johnnyrpy.github.io/checkout.js"></script> -->
     <script>
       console.log(Reepay);
       console.log(typeof Reepay.isGooglePayAvailable);
 
-      Reepay.isGooglePayAvailable('staging')
+      Reepay.isGooglePayAvailable()
         .then((isAvailable) => {
           console.log("something");
 
