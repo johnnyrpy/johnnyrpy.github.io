@@ -1434,6 +1434,7 @@
               if (isMobileOrTablet() && !iOSDevice()) {
                 createGpCheckFrame(resolve, reject, env);
               } else {
+                console.log('false from isGooglePayAvailable');
                 resolve(false);
               }
             });
@@ -1474,9 +1475,11 @@
                   ) {
                     resolve(content.data.data.result);
                   } else {
+                    console.log('false content.data');
                     reject(false);
                   }
                 }
+                console.log('false from createGpCheckFrame');
                 reject(false);
               },
               false
