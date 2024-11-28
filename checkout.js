@@ -1476,7 +1476,7 @@
                     resolve(content.data.data.result);
                   } else {
                     console.log('false content.data');
-                    reject(false);
+                    reject();
                   }
                 }
                 console.log('false from createGpCheckFrame');
