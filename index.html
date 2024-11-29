@@ -3,103 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billwerk+ Checkout</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      h1 {
-        color: #4caf50;
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        text-align: center;
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .button {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      .button:hover {
-        background-color: #45a049;
-      }
-
-      footer {
-        position: absolute;
-        bottom: 1rem;
-        font-size: 0.9rem;
-        color: #777;
-      }
-    </style>
+    <title>Billwerk+</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <main>
-      <p>Version 1.0.20</p>
-      <p>Button shows up if Google Pay or Apple Pay is available</p>
-      <div class="button-container">
-        <button class="button" id="google-pay-button" style="display: none">
-          Pay with Google Pay
-        </button>
-        <button class="button" id="apple-pay-button" style="display: none">
-          Pay with Apple Pay
-        </button>
-      </div>
-    </main>
-    <footer>&copy; 2024 GitHub Pages Demo</footer>
-
-    <script src="https://dev-checkout.reepay.com/assets/demo/common/live-dev-checkout.js"></script>
-    <!-- <script src="https://johnnyrpy.github.io/checkout.js"></script> -->
-    <script>
-      console.log(Reepay);
-      console.log(typeof Reepay.isGooglePayAvailable);
-
-      Reepay.isGooglePayAvailable('live-dev')
-        .then((isAvailable) => {
-          console.log("something");
-
-          console.log("Google Pay available:", isAvailable);
-          const googlePayButton = document.getElementById("google-pay-button");
-          if (isAvailable) {
-            googlePayButton.style.display = "block";
-          }
-        })
-        .catch((error) => {
-          console.error("Error checking Google Pay availability:", error);
-        });
-
-      // const isApplePayAvailable = Reepay.isApplePayAvailable();
-      // const applePayButton = document.getElementById("apple-pay-button");
-      // if (isApplePayAvailable) {
-      //   applePayButton.style.display = "block";
-      // }
-      // console.log("Apple Pay available:", isApplePayAvailable);
-    </script>
+    <div class="container">
+      <header>
+        <h1>Welcome</h1>
+        <p>As a merchant, I would like to:</p>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="/googlepay.html">Test Google Pay availability</a></li>
+          <li><a href="/applepay.html">Test Apple Pay availability</a></li>
+        </ul>
+      </nav>
+      <footer>
+        <p>&copy; 2025 Billwerk+. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
