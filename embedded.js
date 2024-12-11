@@ -1,5 +1,8 @@
+var rp;
+var urlParams = {};
+
 window.onload = function () {
-  var rp = new Reepay.EmbeddedCheckout(null, { html_element: "rp_container" });
+  rp = new Reepay.EmbeddedCheckout(null, { html_element: "rp_container" });
 
   rp.addEventHandler(Reepay.Event.Accept, function (data) {
     console.log("Success:", data);
@@ -14,6 +17,30 @@ window.onload = function () {
   });
 
   setTimeout(() => {
-    rp.show("cs_00bfe691e9194265446ee9ee0ce6ebfa");
+    initSession();
   }, 1000);
 };
+
+function initSession() {
+  var urlQueries = window.location.href.split("?")[1];
+  if (urlQueries) {
+    urlQueries = urlQueries.split("&");
+  }
+  if (urlQueries) {
+    urlQueries.forEach(function (query) {
+      var param = query.split("=");
+      urlParams[param[0]] = param[1] ? param[1] : true;
+    });
+  }
+
+  if (urlParams["session"]) {
+    rp.show(urlParams["session"]);
+
+    Reepay.isGooglePayAvailable().then((isGooglePayAvailable) => {
+      console.log("isGooglePayAvailable:", isGooglePayAvailable);
+    });
+
+    var isApplePayAvailable = Reepay.isApplePayAvailable();
+    console.log("isApplePayAvailable:", isApplePayAvailable);
+  }
+}
