@@ -54,8 +54,10 @@ nav ul {
 }
 
 nav ul li {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin: 10px;
+  justify-content: center;
 }
 
 nav ul li a {
@@ -73,4 +75,32 @@ footer p {
   margin-top: 20px;
   font-size: 0.9rem;
   color: #7f8c8d;
+}
+
+/* checkbox */
+li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  margin-right: 10px; /* Space between the anchor and checkbox */
+}
+
+.styled-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6200ea;
+  border-radius: 5px;
+  background-color: white;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: .5rem;
+}
+
+.styled-checkbox:hover {
+  box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
+}
+
+.styled-checkbox:checked {
+  background-color: #6200ea;
 }

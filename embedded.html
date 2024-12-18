@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billwerk+ Embedded Checkout</title>
+    <title>Billwerk+ Embedded</title>
     <link rel="stylesheet" href="/pay.css" />
+    <link rel="stylesheet" href="/form.css" />
   </head>
   <body>
     <header style="margin: 2rem">
@@ -12,14 +13,44 @@
     </header>
 
     <main>
-      <h3 style="text-align: center">Embedded Checkout:</h3>
+      <h3 style="text-align: center">Billwerk+ Embedded</h3>
       <a
         style="display: flex; justify-content: center"
         href="https://optimize-docs.billwerk.com/docs/embedded-checkout"
         target="_blank"
       >
-        Billwerk+ Embedded Checkout Documentation
+        Billwerk+ Documentation
       </a>
+
+      <div style="margin-top: 1rem">
+        <div class="form-group form-inline">
+          <label for="sessionId">ID</label>
+          <input
+            type="text"
+            id="sessionId"
+            class="styled-input"
+            placeholder="cs_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          />
+          <button type="submit" class="styled-inline-button" id="showButton">
+            Show
+          </button>
+        </div>
+        <div class="form-group form-inline">
+          <label>Type</label>
+          <div class="radio-group">
+            <label class="styled-radio">
+              <input type="radio" name="type" value="embedded" />
+              <span class="custom-radio"></span>
+              Embedded Checkout
+            </label>
+            <label class="styled-radio">
+              <input type="radio" name="type" value="subscription" />
+              <span class="custom-radio"></span>
+              Embedded Subscription
+            </label>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div

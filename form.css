@@ -1,0 +1,110 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styled Input */
+.styled-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.styled-input:focus {
+  border-color: #6200ea;
+  box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
+}
+
+/* Styled Radio Buttons */
+.radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.styled-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.styled-radio input[type="radio"] {
+  display: none;
+}
+
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.styled-radio input[type="radio"]:checked + .custom-radio {
+  border-color: #6200ea;
+  background: #6200ea;
+}
+
+.styled-radio input[type="radio"]:checked + .custom-radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styled Button */
+.styled-button {
+  width: 100%;
+  padding: 10px 15px;
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+  background: #5200cc;
+}
+
+/* inline */
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.styled-inline-button {
+  padding: 10px 15px;
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-inline-button:hover {
+  background: #5200cc;
+}
