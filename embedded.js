@@ -136,6 +136,13 @@ function initCheckout() {
   rp.addEventHandler(Reepay.Event.Close, function (data) {
     console.log("Close:", data);
   });
+
+  let url = new URL(window.location.href);
+  if (url.searchParams.has("id")) {
+    url.searchParams.delete("id");
+  }
+  url.searchParams.append("id", sessionId);
+  window.history.pushState({}, "", url);
 }
 
 function changeSessionType() {
