@@ -112,10 +112,12 @@ function initCheckout() {
   if (sessionType === "subscription") {
     rp = new Reepay.EmbeddedSubscription(sessionId, {
       html_element: "rp_container",
+      domainName: "johnnyrpy.github.io",
     });
   } else {
     rp = new Reepay.EmbeddedCheckout(sessionId, {
       html_element: "rp_container",
+      domainName: "johnnyrpy.github.io",
     });
   }
 
