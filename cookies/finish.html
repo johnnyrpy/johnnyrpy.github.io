@@ -1,0 +1,15 @@
+<body>
+  <script>
+    if (window.parent) {
+      if (/thirdparty=yes/.test(document.cookie)) {
+        window.parent.postMessage({ for: "rp_c", is_3pc_supported: true }, "*");
+      } else {
+        window.parent.postMessage(
+          { for: "rp_c", is_3pc_supported: false },
+          "*"
+        );
+      }
+      document.cookie = "thirdparty=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    }
+  </script>
+</body>
