@@ -2,10 +2,13 @@
   <script>
     if (window.parent) {
       if (/thirdparty=yes/.test(document.cookie)) {
-        window.parent.postMessage({ for: "rp_c", is_3pc_supported: true }, "*");
+        window.parent.postMessage(
+          { for: "rp_c", iframe_cookies: { is_3pc_supported: true } },
+          "*"
+        );
       } else {
         window.parent.postMessage(
-          { for: "rp_c", is_3pc_supported: false },
+          { for: "rp_c", iframe_cookies: { is_3pc_supported: false } },
           "*"
         );
       }
