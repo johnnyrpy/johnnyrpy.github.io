@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frisbii Embedded Checkout</title>
+    <title>Frisbii Overlay Checkout</title>
     <link rel="stylesheet" href="/pay.css" />
     <link rel="stylesheet" href="/form.css" />
   </head>
@@ -13,10 +13,10 @@
     </header>
 
     <main>
-      <h3 style="text-align: center">Frisbii Embedded Checkout</h3>
+      <h3 style="text-align: center">Frisbii Overlay Checkout</h3>
       <a
         style="display: flex; justify-content: center"
-        href="https://docs.frisbii.com/docs/embedded-checkout"
+        href="https://docs.frisbii.com/docs/overlay-checkout"
         target="_blank"
       >
         Frisbii Documentation
@@ -39,14 +39,14 @@
           <label>Type</label>
           <div class="radio-group">
             <label class="styled-radio">
-              <input type="radio" name="type" value="embedded" />
+              <input type="radio" name="type" value="modal" />
               <span class="custom-radio"></span>
-              Embedded Checkout
+              Modal Checkout
             </label>
             <label class="styled-radio">
               <input type="radio" name="type" value="subscription" />
               <span class="custom-radio"></span>
-              Embedded Subscription
+              Modal Subscription
             </label>
           </div>
         </div>
@@ -58,12 +58,6 @@
       style="width: 500px; height: 730px; margin: 2rem"
     ></div>
 
-    <!-- <iframe
-      src="https://dev-checkout.reepay.com/#/checkout/..."
-      style="width: 500px; height: 730px; margin: 2rem"
-      allow="payment"
-    ></iframe> -->
-
-    <script src="/embedded.js"></script>
+    <script src="/modal.js"></script>
   </body>
 </html>
