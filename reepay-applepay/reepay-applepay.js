@@ -1,4 +1,4 @@
-const pubKey = "pub_27eb9904ab3f5e3c4f4ecb9a0ce788d5"; // Whatever
+const pubKey = "pub_f90368e9f280319877ebf1db6fc467aa"; // Whatever
 
 const buttonStyles = {
   style: "black",
