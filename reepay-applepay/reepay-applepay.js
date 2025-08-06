@@ -1,4 +1,4 @@
-const pubKey = "pub_d597082034986d9a22a3f1ad4eca7740"; // Test public key
+const pubKey = "pub_27eb9904ab3f5e3c4f4ecb9a0ce788d5"; // Whatever
 
 const buttonStyles = {
   style: "black",
