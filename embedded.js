@@ -61,6 +61,11 @@ function detectAppleGoogle() {
   Reepay.isGooglePayAvailable().then((isGooglePayAvailable) => {
     console.log("isGooglePayAvailable:", isGooglePayAvailable);
   });
+
+  Reepay.isApplePaySupported().then((isApplePaySupported) => {
+    console.log("isApplePaySupported:", isApplePaySupported);
+  });
+
   var isApplePayAvailable = Reepay.isApplePayAvailable();
   console.log("isApplePayAvailable:", isApplePayAvailable);
 }
