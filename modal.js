@@ -10,12 +10,9 @@ var sessionType;
 
 var isWrongSessionType = false;
 
-window.onload = function () {
-  init();
-
-  setTimeout(() => {
-    initSession();
-  }, 500);
+window.onload = async function () {
+  await init();
+  await initSession();
 };
 
 function init() {
@@ -34,16 +31,27 @@ function init() {
   console.log("Environment:", environment);
   let reepayScriptUrl = "https://checkout.reepay.com/checkout.js";
   if (environment === "staging" || environment === "s") {
-    reepayScriptUrl = "https://staging-checkout.reepay.com/checkout.js";
+    // reepayScriptUrl = "https://staging-checkout.reepay.com/checkout.js";
+    reepayScriptUrl =
+      "https://68vxnp9s-8080.uks1.devtunnels.ms/dist_staging/checkout.js";
   }
 
-  const script = document.createElement("script");
-  script.src = reepayScriptUrl;
-  script.async = true;
-  script.onload = function () {
-    detectAppleGoogle();
-  };
-  window.document.head.appendChild(script);
+  // Create promise that resolves when Reepay is loaded
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = reepayScriptUrl;
+    script.async = true;
+    script.onload = function () {
+      console.log("Reepay script loaded successfully");
+      detectAppleGoogle();
+      resolve();
+    };
+    script.onerror = function () {
+      console.error("Failed to load Reepay script");
+      reject(new Error("Failed to load Reepay script"));
+    };
+    window.document.head.appendChild(script);
+  });
 }
 
 function initSession() {
@@ -71,13 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionTypeRadios[0].checked = true;
   }
   sessionTypeRadios.forEach((radio) => {
-    radio.addEventListener("change", (event) => {
+    radio.addEventListener("change", async (event) => {
       event.preventDefault();
       const selectedSessionType = document.querySelector(
         'input[name="type"]:checked'
       );
       sessionType = selectedSessionType.value;
-      initCheckout();
+      await initCheckout();
     });
   });
 
@@ -94,19 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   showButton = document.getElementById("showButton");
-  showButton.addEventListener("click", () => {
+  showButton.addEventListener("click", async () => {
     sessionId = document.getElementById("sessionId")?.value?.trim();
     sessionType = document.querySelector('input[name="type"]:checked')?.value;
 
     if (sessionId.trim() === "") {
       console.error("Session ID is required");
     } else {
-      initCheckout();
+      await initCheckout();
     }
   });
 });
 
-function initCheckout() {
+async function initCheckout() {
   rp?.destroy();
 
   if (sessionType === "subscription") {
