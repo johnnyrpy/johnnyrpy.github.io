@@ -34,6 +34,8 @@ function init() {
     // reepayScriptUrl = "https://staging-checkout.reepay.com/checkout.js";
     reepayScriptUrl =
       "https://68vxnp9s-8080.uks1.devtunnels.ms/dist_staging/checkout.js";
+
+    console.log("🚀 ~ init ~ reepayScriptUrl:", reepayScriptUrl);
   }
 
   // Create promise that resolves when Reepay is loaded
@@ -62,6 +64,7 @@ function initSession() {
   }
 
   const container = document.getElementById("rp_container");
+  console.log("🚀 ~ initSession ~ container:", container);
   console.log("Iframe src:", container?.childNodes[0]?.src);
 }
 
