@@ -31,9 +31,9 @@ function init() {
   console.log("Environment:", environment);
   let reepayScriptUrl = "https://checkout.reepay.com/checkout.js";
   if (environment === "staging" || environment === "s") {
-    // reepayScriptUrl = "https://staging-checkout.reepay.com/checkout.js";
-    reepayScriptUrl =
-      "https://68vxnp9s-8080.uks1.devtunnels.ms/dist_staging/checkout.js";
+    reepayScriptUrl = "https://staging-checkout.reepay.com/checkout.js";
+    // reepayScriptUrl =
+    //   "https://68vxnp9s-8080.uks1.devtunnels.ms/dist_staging/checkout.js";
 
     console.log("🚀 ~ init ~ reepayScriptUrl:", reepayScriptUrl);
   }
