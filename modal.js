@@ -120,13 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
 async function initCheckout() {
   rp?.destroy();
 
+  const domainName = window.location.hostname;
+  console.log("Domain name:", domainName);
   if (sessionType === "subscription") {
     rp = new Reepay.ModalSubscription(sessionId, {
-      domainName: "johnnyrpy.github.io",
+      domainName,
     });
   } else {
     rp = new Reepay.ModalCheckout(sessionId, {
-      domainName: "johnnyrpy.github.io",
+      domainName,
     });
   }
 
